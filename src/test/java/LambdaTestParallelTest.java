@@ -1,3 +1,4 @@
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +21,7 @@ public class LambdaTestParallelTest{
 
     @Parameters({"browser", "version", "platform"})
     @BeforeClass
+    @Step("Setting up browser: {browser}, version: {version}, platform: {platform}")
     public void setUp(String browser, String version, String platform) throws MalformedURLException {
         String username = "satishumapathi";
         String accessKey = "ndeW5tPC3b22DwpTcleeT44Xcdk58kRA8yF1rfA8atgbxMFm0l";
@@ -39,6 +41,11 @@ public class LambdaTestParallelTest{
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Test Description: Navigate to the LambdaTest Dashboard")
+    @Epic("EP001")
+    @Feature("Feature1: Dashboard")
+    @Story("Story: LambdaTest Dashboard Login")
     public void navigateToDashboard() {
         driver.get("https://www.lambdatest.com");
         driver.findElement(By.xpath("/html/body/div[1]/header/nav/div/div/div[2]/div/div/div[2]/a[1]")).click();
@@ -46,6 +53,7 @@ public class LambdaTestParallelTest{
         driver.findElement(By.xpath("/html/body/div[1]/div/main/div/div/div/div/div[1]/div/form/div[2]/div/input")).sendKeys("Sathish@16", Keys.ENTER);
         System.out.println("Navigated to LambdaTest Dashboard on " + ((RemoteWebDriver) driver).getCapabilities().getBrowserName());
     }
+
 
     @AfterClass
     public void tearDown() {
