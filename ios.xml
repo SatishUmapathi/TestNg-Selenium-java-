@@ -1,0 +1,52 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LambdaTest Parallel Execution" parallel="methods" thread-count="5">
+    <test name="Chrome Test - iPhone 11">
+        <parameter name="browserName" value="chrome" />
+        <parameter name="platformName" value="ios" />
+        <parameter name="platformVersion" value="12" />
+        <parameter name="deviceName" value="iPhone 11" />
+        <classes>
+            <class name="AndroidTest" />
+        </classes>
+    </test>
+
+    <test name="Firefox Test - iPad Pro">
+        <parameter name="browserName" value="chrome" />
+        <parameter name="platformName" value="ios" />
+        <parameter name="platformVersion" value="15" />
+        <parameter name="deviceName" value="iPad Pro 11" />
+        <classes>
+            <class name="AndroidTest" />
+        </classes>
+    </test>
+
+    <test name="Edge Test - iPhone 16">
+        <parameter name="browserName" value="chrome" />
+        <parameter name="platformName" value="ios" />
+        <parameter name="platformVersion" value="18" />
+        <parameter name="deviceName" value="iPhone 16" />
+        <classes>
+            <class name="AndroidTest" />
+        </classes>
+    </test>
+
+    <test name="Chrome Test on iOS - iPhone 15 Pro Max">
+        <parameter name="browserName" value="chrome" />
+        <parameter name="platformName" value="ios" />
+        <parameter name="platformVersion" value="16" />
+        <parameter name="deviceName" value="iPhone 15 Pro Max" />
+        <classes>
+            <class name="AndroidTest" />
+        </classes>
+    </test>
+
+    <test name="Firefox Test on iOS - iPhone 11 Pro">
+        <parameter name="browserName" value="chrome" />
+        <parameter name="platformName" value="ios" />
+        <parameter name="platformVersion" value="14" />
+        <parameter name="deviceName" value="iPhone 11 Pro" />
+        <classes>
+            <class name="AndroidTest" />
+        </classes>
+    </test>
+</suite>

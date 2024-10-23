@@ -1,0 +1,1 @@
+{"uuid":"5b4707fa-81f2-4950-9d30-93e49e735c68","name":"AndroidTest.tearDown","children":["096ff983-d8a2-4753-907d-3762dbc78179"],"description":"","befores":[],"afters":[{"name":"tearDown","status":"broken","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1729195558231,"stop":1729195558231}],"start":1729195558231,"stop":1729195558231}

@@ -1,0 +1,52 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LambdaTest Parallel Execution" parallel="methods" thread-count="5">
+    <test name="Chrome Test - Pixel 5">
+        <parameter name="browserName" value="chrome" />
+        <parameter name="platformName" value="Android" />
+        <parameter name="platformVersion" value="11" />
+        <parameter name="deviceName" value="Pixel 5" />
+        <classes>
+            <class name="AndroidTest" />
+        </classes>
+    </test>
+
+    <test name="Firefox Test - Galaxy S24">
+        <parameter name="browserName" value="firefox" />
+        <parameter name="platformName" value="Android" />
+        <parameter name="platformVersion" value="11" />
+        <parameter name="deviceName" value="Samsung Galaxy S24 Ultra" />
+        <classes>
+            <class name="AndroidTest" />
+        </classes>
+    </test>
+
+    <test name="Edge Test - Galaxy Tab S9">
+        <parameter name="browserName" value="edge" />
+        <parameter name="platformName" value="Android" />
+        <parameter name="platformVersion" value="14" />
+        <parameter name="deviceName" value="Samsung Galaxy Tab S9" />
+        <classes>
+            <class name="AndroidTest" />
+        </classes>
+    </test>
+
+    <test name="Chrome Test - OnePlus 8">
+        <parameter name="browserName" value="chrome" />
+        <parameter name="platformName" value="android" />
+        <parameter name="platformVersion" value="10" />
+        <parameter name="deviceName" value="OnePlus 8" />
+        <classes>
+            <class name="AndroidTest" />
+        </classes>
+    </test>
+
+    <test name="Firefox Test - Xiaomi 12 Pro">
+        <parameter name="browserName" value="firefox" />
+        <parameter name="platformName" value="android" />
+        <parameter name="platformVersion" value="12" />
+        <parameter name="deviceName" value="Xiaomi 12 Pro" />
+        <classes>
+            <class name="AndroidTest" />
+        </classes>
+    </test>
+</suite>
