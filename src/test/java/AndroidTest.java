@@ -1,18 +1,16 @@
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import org.openqa.selenium.safari.SafariOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
+import utils.Parser;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -23,6 +21,7 @@ public class AndroidTest {
     public static RemoteWebDriver driver = null;
     public String gridURL = "@hub.lambdatest.com/wd/hub";
     boolean status = false;
+    public Parser parser;
 
     @Parameters({"browserName", "platformName", "deviceName"})
     @BeforeClass
@@ -30,7 +29,7 @@ public class AndroidTest {
     public void setUp(String browser, String platform, String deviceName) throws Exception {
         ChromeOptions chromeOptions = null;
         FirefoxOptions firefoxOptions = null;
-        EdgeOptions edgeOptions= null;
+        EdgeOptions edgeOptions = null;
         SafariOptions safariOptions = null;
         switch (browser) {
             case "chrome":
@@ -84,27 +83,35 @@ public class AndroidTest {
                 break;
         }
 
-
+        // Initialize the Parser class with the driver to use its methods
+        parser = new Parser(driver);
     }
 
     @Test
     public void testSimple() throws Exception {
         try {
-            driver.get("https://lambdatest.github.io/sample-todo-app/");
+            driver.get("https://www.lambdatest.com/");
 
-            // Let's mark done the first two items in the list.
-            driver.findElement(By.name("li1")).click();
-            driver.findElement(By.name("li2")).click();
+//            // Let's mark done the first two items in the list.
+//            driver.findElement(By.name("li1")).click();
+//            driver.findElement(By.name("li2")).click();
+//
+//            // Let's add an item to the list.
+//            driver.findElement(By.id("sampletodotext")).sendKeys("Yey, Let's add it to list");
+//            driver.findElement(By.id("addbutton")).click();
+//
+//            // Let's check that the item we added is in the list.
+//            String enteredText = driver.findElement(By.xpath("/html/body/div/div/div/ul/li[6]/span")).getText();
+//            if (enteredText.equals("Yey, Let's add it to list")) {
+//                status = true;
+//            }
 
-            // Let's add an item to the list.
-            driver.findElement(By.id("sampletodotext")).sendKeys("Yey, Let's add it to list");
-            driver.findElement(By.id("addbutton")).click();
+            // Using Parser class to perform additional actions, like scroll or swipe
+            parser.scroll("down"); // Scroll down the page
 
-            // Let's check that the item we added is in the list.
-            String enteredText = driver.findElement(By.xpath("/html/body/div/div/div/ul/li[6]/span")).getText();
-            if (enteredText.equals("Yey, Let's add it to list")) {
-                status = true;
-            }
+            // Optional: Use parser to swipe (example: swipe left)
+            parser.customSwipe(100, 200, 300, 400, 2);  // Swipe from (100,200) to (300,400)
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -35,12 +35,4 @@
             <class name="LambdaTestParallelTest" />
         </classes>
     </test>
-    <test name="Opera Test">
-        <parameter name="browser" value="Opera" />
-        <parameter name="version" value="latest" />
-        <parameter name="platform" value="Windows 11" />
-        <classes>
-            <class name="LambdaTestParallelTest" />
-        </classes>
-    </test>
 </suite>

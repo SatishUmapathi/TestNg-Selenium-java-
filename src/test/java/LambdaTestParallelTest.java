@@ -30,10 +30,10 @@ public class LambdaTestParallelTest{
             options.setCapability(CapabilityType.BROWSER_VERSION, version);
             options.setCapability("platformName", platform);
             options.setCapability("LT:Options", new HashMap<String, Object>() {{
-                put("build", "LambdaTest Parallel Test");
-                put("name", "Parallel Test on " + browser);
+                put("build", "demodemo_8th_nov_8th_nov");
+                put("name", "Open lambdatest and search for any opening of solution engg");
                 put("console", true);
-                put("performance", true);
+                put("project", "demo_8th_nov");
             }});
             driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.lambdatest.com/wd/hub"), options);
     }
@@ -55,6 +55,6 @@ public class LambdaTestParallelTest{
 
     @AfterClass
     public void tearDown() {
-        driver.quit();
+        driver.close();
     }
 }
